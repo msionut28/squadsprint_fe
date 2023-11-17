@@ -5,7 +5,7 @@ SprintSquad is your ultimate task collaboration platform, empowering teams to or
 
 ## LOCAL DEVELOPMENT
 
-1. Clone the repo.
+1. Clone the repo as well as the [backend repo](https://github.com/msionut28/squadsprint_be).
 2. Run a ``` npm i ``` in order to get all of the dependencies locally installed.
 3. Update your ```.env``` file according to the ```.env.example``` so you can get the full experience.
 4. Run the development server using one of the following commands depending of the OS used:
