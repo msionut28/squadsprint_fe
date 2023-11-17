@@ -6,9 +6,9 @@ SprintSquad is your ultimate task collaboration platform, empowering teams to or
 ## LOCAL DEVELOPMENT
 
 1. Clone the repo.
-2. Run an ``` npm i ``` in order to get all of the dependencies locally installed.
+2. Run a ``` npm i ``` in order to get all of the dependencies locally installed.
 3. Update your ```.env``` file according to the ```.env.example``` so you can get the full experience.
-4. Run the development server using one of the following commands:
+4. Run the development server using one of the following commands depending of the OS used:
 ```bash
 npm run dev
 # or
@@ -23,8 +23,8 @@ bun dev
 
 ## DATABASES
 
-|EXAMPLE|EXAMPLE|EXAMPLE|
-| --- | --- | --- |
-| This | is a | table |
-| This | is 2nd | row |
-| This | is 3rd | row |
+|EXAMPLE|EXAMPLE|EXAMPLE|   |EXAMPLE|EXAMPLE|EXAMPLE|
+| --- | --- | --- |         | --- | --- | --- |
+| This | is a | table |     | This | is a | table |
+| This | is 2nd | row |     | This | is 2nd | row |
+| This | is 3rd | row |     | This | is 3rd | row |
