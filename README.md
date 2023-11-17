@@ -23,8 +23,8 @@ bun dev
 
 ## DATABASES
 
-|EXAMPLE|EXAMPLE|EXAMPLE|   |EXAMPLE|EXAMPLE|EXAMPLE|
-| --- | --- | --- |         | --- | --- | --- |
-| This | is a | table |     | This | is a | table |
-| This | is 2nd | row |     | This | is 2nd | row |
-| This | is 3rd | row |     | This | is 3rd | row |
+|EXAMPLE|EXAMPLE|EXAMPLE|
+| --- | --- | --- |
+| This | is a | table |
+| This | is 2nd | row |
+| This | is 3rd | row |
