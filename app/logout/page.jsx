@@ -12,7 +12,7 @@ const Logout = () => {
             refresh_token: localStorage.getItem("refresh_token"),
           },
           { headers: { "Content-Type": "application/json", "Authorization": `${localStorage.getItem("access_token")}` } },
-          // { withCredentials: true }
+          { withCredentials: true }
         );
         localStorage.clear();
         axios.defaults.headers.common["Authorization"] = null;
