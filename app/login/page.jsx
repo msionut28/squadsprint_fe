@@ -9,6 +9,7 @@ export default function Login() {
   const { login, user } = useAuth()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const backendURL = process.env.BACKEND_URL
 
   const submit = async (e) => {
     e.preventDefault();
@@ -18,7 +19,7 @@ export default function Login() {
     };
     // Create the POST requuest
     const { data } = await axios.post(
-      "http://localhost:8000/token/",
+      `${backendURL}/token/`,
       userlogin,
       {
         headers: { "Content-Type": "application/json" },

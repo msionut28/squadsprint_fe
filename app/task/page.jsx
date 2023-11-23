@@ -27,9 +27,10 @@ export default function TaskCreator() {
   };
   useEffect(() => {
     const fetchGroups = async () => {
+      const backendURL=process.env.BACKEND_URL
       try {
         const accessToken = localStorage.getItem("access_token");
-        const response = await axios.get("http://localhost:8000/groups/", {
+        const response = await axios.get(`${backendURL}/groups/`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
