@@ -64,11 +64,11 @@ export default function Home() {
 
   function handleDeleteModal(data) {
     setShowDeleteModal(true);
-    setIdToDelete(data.event.id);
+    setIdToDelete(Number(data.event.id));
   }
 
   function handleDelete() {
-    setAllEvents(allEvents.filter((event) => event.id !== idToDelete));
+    setAllEvents(allEvents.filter((event) => Number(event.id) !== Number(idToDelete)));
     console.log("DELETED");
     setShowDeleteModal(false);
     setIdToDelete(null);
