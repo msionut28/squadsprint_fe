@@ -29,7 +29,6 @@ export default function Login() {
       }
     );
 
-    // Initialize the access & refresh token in localstorage.
     localStorage.clear();
     localStorage.setItem("access_token", data.access);
     localStorage.setItem("refresh_token", data.refresh);
@@ -44,8 +43,10 @@ export default function Login() {
         router.push('/')
       }
     }
-    setTimeout(redirect, 1000)
-  }, [user]);
+    if(user !== null){
+      setTimeout(redirect, 200)
+    }
+  }, [user, router]);
   return (
     <div className="Auth-form-container">
       <form className="Auth-form" onSubmit={submit}>

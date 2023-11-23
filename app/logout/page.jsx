@@ -1,31 +1,47 @@
 'use client'
+import axios from "axios";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import axios from "axios";
+import { useAuth } from "@/context/AuthContext";
 
 const Logout = () => {
-  const backendURL=process.env.BACKEND_URL
-  const router = useRouter()
+  const backendURL = process.env.BACKEND_URL;
+  const router = useRouter();
+  const { logout: authLogout } = useAuth();
+
   useEffect(() => {
-    (async () => {
+    const logout = async () => {
       try {
-        const { data } = await axios.post(
+        const response = await axios.post(
           `${backendURL}/logout/`,
+          { refresh_token: localStorage.getItem("refresh_token") },
           {
-            refresh_token: localStorage.getItem("refresh_token"),
-          },
-          { headers: { "Content-Type": "application/json", "Authorization": `${localStorage.getItem("access_token")}` } },
-          { withCredentials: true }
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            },
+            withCredentials: true,
+          }
         );
-        localStorage.clear();
-        axios.defaults.headers.common["Authorization"] = null;
-        router.push("/login");
-      } catch (e) {
-        console.log("logout not working", e);
+
+        // Check the response status code and handle accordingly
+        if (response.status === 205) {
+          localStorage.clear();
+          authLogout();
+          delete axios.defaults.headers.common["Authorization"];
+          router.push("/");
+        } else {
+          console.log("Unexpected status code:", response.status);
+        }
+      } catch (error) {
+        console.log("Logout not working", error);
       }
-    })();
-  }, []);
+    };
+
+    logout();
+  }, [authLogout]);
+
   return <div></div>;
 };
 
-export default Logout
+export default Logout;
