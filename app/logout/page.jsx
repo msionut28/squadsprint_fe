@@ -1,8 +1,11 @@
 'use client'
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
+
 const Logout = () => {
   const backendURL=process.env.BACKEND_URL
+  const router = useRouter()
   useEffect(() => {
     (async () => {
       try {
@@ -16,7 +19,7 @@ const Logout = () => {
         );
         localStorage.clear();
         axios.defaults.headers.common["Authorization"] = null;
-        window.location.href = "/login";
+        router.push("/login");
       } catch (e) {
         console.log("logout not working", e);
       }
