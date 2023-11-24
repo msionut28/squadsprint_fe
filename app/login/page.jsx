@@ -19,7 +19,7 @@ export default function Login() {
     };
     // Create the POST requuest
     const { data } = await axios.post(
-      `${backendURL}/token/`,
+      `${backendURL}/customtoken/`,
       userlogin,
       {
         headers: { "Content-Type": "application/json" },
@@ -37,9 +37,8 @@ export default function Login() {
   };
   useEffect(() => {
     const redirect = async () =>{
-      console.log(user);
       if (user) {
-        console.log(user);
+        console.log("inside redirect", user);
         router.push('/')
       }
     }
