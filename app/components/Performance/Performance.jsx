@@ -56,7 +56,7 @@ const Performance = () => {
             <CardContent>
                 <div className="flex items-center justify-between">
                     <div>
-                        <h4 className="mb-0 text-lg font-semibold">Your Team's Overall Performance</h4>
+                        <h4 className="mb-0 text-lg font-semibold">Your Team&apos;s Overall Performance</h4>
                     </div>
                 </div>
                 <div className="mb-8">
