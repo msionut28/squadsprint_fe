@@ -19,6 +19,7 @@ const Members = () => {
       }
     };
     fetchData()
+    console.log(TeamsData);
   }, [])
     
 
@@ -45,7 +46,7 @@ const Members = () => {
                 <div className="flex items-center">
                   <div className="bg-purple-500 rounded-full p-1">
                     <Image
-                      src={item.profilepic}
+                      src={item.profile_picture ? `${item.profile_picture}`: '/icons/white/profilepic.svg'}
                       width={18}
                       height={18} 
                       alt=""

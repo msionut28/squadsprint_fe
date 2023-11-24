@@ -12,22 +12,63 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useAuth } from "@/context/AuthContext";
 import DynamicForm from "../components/Form/Form";
+import { useRouter } from "next/navigation";
 
 export default function TaskCreator() {
-  const fieldNames = ["Title", "Description", "Name"];
+  const fieldNames = [
+    { name: "title", label: "Title", type: "text", placeholder: "Enter Title" },
+    {
+      name: "description",
+      label: "Description",
+      type: "textarea",
+      placeholder: "Enter Description",
+    },
+    {
+      name: "deadline",
+      label: "Deadline",
+      type: "date",
+      placeholder: "Pick a date",
+    },
+  ];
   const [groups, setGroups] = useState([]);
   const [selectedGroup, setSelectedGroup] = useState("");
-  function onSubmit(data) {
-    console.log(data);
-  }
+  const { user } = useAuth();
+  const router = useRouter();
+  const onSubmit = async (data) => {
+    const backendURL = process.env.BACKEND_URL;
+    try {
+      const accessToken = localStorage.getItem("access_token");
+      const userId = user ? user.user_id.toString() : null;
+      const taskData = {
+        ...data,
+        created_by: userId,
+        assigned_group: selectedGroup,
+      };
+      console.log(taskData);
+      const response = await axios.post(`${backendURL}/addtask/`, taskData, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      console.log(response.data);
+      if (response.status === 201) {
+        router.push('/');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   const handleSelectChange = (e) => {
     console.log(e.target.value);
     setSelectedGroup(e.target.value);
   };
   useEffect(() => {
     const fetchGroups = async () => {
-      const backendURL=process.env.BACKEND_URL
+      const backendURL = process.env.BACKEND_URL;
       try {
         const accessToken = localStorage.getItem("access_token");
         const response = await axios.get(`${backendURL}/groups/`, {
@@ -36,13 +77,14 @@ export default function TaskCreator() {
           },
         });
         const data = response.data;
-        setGroups(data);
         console.log(data);
+        setGroups(data);
       } catch (error) {
         console.error(error);
       }
     };
     fetchGroups();
+    console.log(groups);
   }, []);
   return (
     <>
