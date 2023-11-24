@@ -5,7 +5,7 @@ const nextConfig = {
   },
   reactStrictMode: false,
   distDir: 'build',
-  output: 'export'
+//   output: 'export'
 };
 
 module.exports = nextConfig;
