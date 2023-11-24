@@ -44,7 +44,7 @@ export default function TaskCreator() {
   const { user } = useAuth();
   const router = useRouter();
   const backendURL = process.env.BACKEND_URL;
-  const accessToken = localStorage.getItem("access_token");
+  
   const onSubmit = async (data) => {
     try {
       const userId = user ? user.user_id.toString() : null;
@@ -91,6 +91,7 @@ export default function TaskCreator() {
   };
 
   const handleDelete = async () => {
+    const accessToken = localStorage.getItem("access_token");
     try {
       const response = await axios.delete(`${backendURL}/tasks/delete/${taskId}`, {
         headers: {
