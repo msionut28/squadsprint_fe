@@ -46,9 +46,8 @@ export default function TaskCreator() {
   const backendURL = process.env.BACKEND_URL;
   
   const onSubmit = async (data) => {
-    
+    const accessToken = localStorage.getItem("access_token");
     try {
-      const accessToken = localStorage.getItem("access_token");
       const userId = user ? user.user_id.toString() : null;
       const taskData = {
         ...data,
