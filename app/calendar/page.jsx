@@ -1,9 +1,9 @@
 "use client";
+import { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin, { Draggable } from "@fullcalendar/interaction";
 import timeGridPlugin from "@fullcalendar/timegrid";
-import { useEffect, useState } from "react";
 import DeleteDialog from "../components/DeleteDialog/DeleteDialog";
 import AddTaskDialog from "../components/AddTaskDialog/AddTaskDialog";
 
@@ -148,6 +148,8 @@ export default function Home() {
         setShowDeleteModal={setShowDeleteModal}
         handleDelete={handleDelete}
         handleCloseModal={handleCloseModal}
+        dialogTitle={'Delete Task'}
+        dialogText={'Are you sure you want to delete this task?'}
       />
 
       <AddTaskDialog

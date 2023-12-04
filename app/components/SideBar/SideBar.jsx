@@ -8,17 +8,21 @@ import Image from "next/image";
 export default function SideBar() {
   const [open, setOpen] = useState(false);
   const { user } = useAuth();
+  const settingSidebar = () => {
+    console.log(open);
+    setOpen(!open)
+  }
   return (
     <div className="flex">
       <div
         className={` ${
-          open ? "w-40" : "w-60 "
+          open ? "w-60" : "w-40 "
         } flex flex-col h-screen p-3 bg-slate-700 shadow duration-300`}
       >
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-white">SquadSprint</h2>
-            <button onClick={() => setOpen(!open)}>
+            <button onClick={() => settingSidebar()}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

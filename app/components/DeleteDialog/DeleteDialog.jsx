@@ -1,12 +1,19 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationIcon } from "@heroicons/react/outline";
 import { Fragment } from "react";
+import CustomDialog from "../CustomDialog/CustomDialog";
 
 const DeleteDialog = ({
+    dialogTitle,
+    dialogText,
     showDeleteModal,
     setShowDeleteModal,
     handleDelete,
-    handleCloseModal
+    handleCloseModal,
+    save,
+    handleComplete,
+    edit,
+    editDialog
 }) => {
   return (
 <Transition.Root show={showDeleteModal} as={Fragment}>
@@ -54,17 +61,26 @@ const DeleteDialog = ({
                     as="h3"
                     className="text-base font-semibold leading-6 text-gray-900"
                   >
-                    Delete Task
+                    {dialogTitle}
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Are you sure you want to delete this task?
+                      {dialogText}
                     </p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              {save ? <button
+                type="button"
+                className="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm 
+              font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto"
+                onClick={handleComplete}
+              >
+                Mark as complete
+              </button> : <></>}
+              {edit && editDialog()}
               <button
                 type="button"
                 className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm 

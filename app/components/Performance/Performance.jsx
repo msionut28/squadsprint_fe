@@ -9,7 +9,7 @@ const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 
 const Performance = () => {
-    const perfomanceChartSeries = [150, 21, 15];
+    const perfomanceChartSeries = [30, 21, 15];
     const perfomanceChartOptions = {
         dataLabels: { enabled: !1 },
         labels: ['Direct', 'Referral', 'Organic'],
