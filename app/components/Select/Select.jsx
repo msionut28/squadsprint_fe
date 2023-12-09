@@ -4,7 +4,9 @@ const SelectBar = ({ options, onChange }) => {
   return (
     <Select onChange={(e) => onChange(e)}>
       {options.map((option) => (
-        <option key={option.value} value={option.value}>{option.label}</option>
+        <option key={option.value} value={option.value}>
+          {option.label}
+        </option>
       ))}
     </Select>
   );

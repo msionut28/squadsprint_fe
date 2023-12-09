@@ -4,14 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-
 export default function SideBar() {
   const [open, setOpen] = useState(false);
   const { user } = useAuth();
   const settingSidebar = () => {
     console.log(open);
-    setOpen(!open)
-  }
+    setOpen(!open);
+  };
   return (
     <div className="flex">
       <div
@@ -76,10 +75,11 @@ export default function SideBar() {
                   className="flex items-center p-2 space-x-3 rounded-md"
                 >
                   <Image
-                  src='/icons/white/home.svg'
-                  width={30}
-                  height={30}
-                  alt='home'/>
+                    src="/icons/white/home.svg"
+                    width={30}
+                    height={30}
+                    alt="home"
+                  />
                   <span className="text-gray-100">Home</span>
                 </Link>
               </li>
@@ -89,11 +89,11 @@ export default function SideBar() {
                   href="/groups"
                   className="flex items-center p-2 space-x-3 rounded-md"
                 >
-                  <Image 
-                  src='/icons/white/groups.svg'
-                  width={30}
-                  height={30}
-                  alt='groups'
+                  <Image
+                    src="/icons/white/groups.svg"
+                    width={30}
+                    height={30}
+                    alt="groups"
                   />
                   <span className="text-gray-100">Groups</span>
                 </Link>
@@ -104,10 +104,11 @@ export default function SideBar() {
                   className="flex items-center p-2 space-x-3 rounded-md"
                 >
                   <Image
-                  src='/icons/white/calendar.svg'
-                  width={30}
-                  height={30}
-                  alt='calendar'/>
+                    src="/icons/white/calendar.svg"
+                    width={30}
+                    height={30}
+                    alt="calendar"
+                  />
                   <span className="text-gray-100">Calendar</span>
                 </Link>
               </li>
@@ -117,10 +118,11 @@ export default function SideBar() {
                   className="flex items-center p-2 space-x-3 rounded-md"
                 >
                   <Image
-                  src='/icons/white/task.svg'
-                  width={30}
-                  height={30}
-                  alt='task'/>
+                    src="/icons/white/task.svg"
+                    width={30}
+                    height={30}
+                    alt="task"
+                  />
                   <span className="text-gray-100">Tasks</span>
                 </Link>
               </li>
@@ -130,10 +132,11 @@ export default function SideBar() {
                   className="flex items-center p-2 space-x-3 rounded-md"
                 >
                   <Image
-                  src='/icons/white/overview.svg'
-                  width={30}
-                  height={30}
-                  alt='overview'/>
+                    src="/icons/white/overview.svg"
+                    width={30}
+                    height={30}
+                    alt="overview"
+                  />
                   <span className="text-gray-100">Overview</span>
                 </Link>
               </li>
@@ -143,10 +146,11 @@ export default function SideBar() {
                   className="flex items-center p-2 space-x-3 rounded-md"
                 >
                   <Image
-                  src='/icons/white/draw.svg'
-                  width={30}
-                  height={30}
-                  alt='draw'/>
+                    src="/icons/white/draw.svg"
+                    width={30}
+                    height={30}
+                    alt="draw"
+                  />
                   <span className="text-gray-100">Excalidraw</span>
                 </Link>
               </li>
@@ -188,10 +192,11 @@ export default function SideBar() {
                     className="flex items-center p-2 space-x-3 rounded-md"
                   >
                     <Image
-                    src='/icons/white/logout.svg'
-                    width={30}
-                    height={30}
-                    alt='logout'/>
+                      src="/icons/white/logout.svg"
+                      width={30}
+                      height={30}
+                      alt="logout"
+                    />
                     <span className="text-gray-100">Logout</span>
                   </Link>
                 </li>
@@ -202,10 +207,11 @@ export default function SideBar() {
                     className="flex items-center p-2 space-x-3 rounded-md"
                   >
                     <Image
-                  src='/icons/white/login.svg'
-                  width={30}
-                  height={30}
-                  alt='login'/>
+                      src="/icons/white/login.svg"
+                      width={30}
+                      height={30}
+                      alt="login"
+                    />
                     <span className="text-gray-100">Login</span>
                   </Link>
                 </li>

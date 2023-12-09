@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import axios from "axios";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -26,6 +26,8 @@ const Logout = () => {
 
         // Check the response status code and handle accordingly
         if (response.status === 205) {
+          //Clearing the local storage, running the auth logout function, deleting the
+          // headers and redirecting to home page
           localStorage.clear();
           authLogout();
           delete axios.defaults.headers.common["Authorization"];
@@ -37,7 +39,7 @@ const Logout = () => {
         console.log("Logout not working", error);
       }
     };
-
+    //Calling the custom logout function to update the context accordingly
     logout();
   }, [authLogout]);
 

@@ -68,7 +68,9 @@ export default function Home() {
   }
 
   function handleDelete() {
-    setAllEvents(allEvents.filter((event) => Number(event.id) !== Number(idToDelete)));
+    setAllEvents(
+      allEvents.filter((event) => Number(event.id) !== Number(idToDelete))
+    );
     console.log("DELETED");
     setShowDeleteModal(false);
     setIdToDelete(null);
@@ -148,8 +150,8 @@ export default function Home() {
         setShowDeleteModal={setShowDeleteModal}
         handleDelete={handleDelete}
         handleCloseModal={handleCloseModal}
-        dialogTitle={'Delete Task'}
-        dialogText={'Are you sure you want to delete this task?'}
+        dialogTitle={"Delete Task"}
+        dialogText={"Are you sure you want to delete this task?"}
       />
 
       <AddTaskDialog

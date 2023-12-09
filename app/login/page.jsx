@@ -23,7 +23,7 @@ export default function Login() {
       password: password,
     };
     console.log(userlogin);
-    // Create the POST request
+    // Creating the POST request to get the JWT tokens
     const { data } = await axios.post(
       `${backendURL}/customtoken/`,
       userlogin,
@@ -35,6 +35,7 @@ export default function Login() {
       }
     );
 
+    //Access and refresh token are being set to the local storage
     localStorage.clear();
     localStorage.setItem("access_token", data.access);
     localStorage.setItem("refresh_token", data.refresh);
@@ -43,11 +44,13 @@ export default function Login() {
   };
   useEffect(() => {
     const redirect = async () => {
+      // If there is an user set, redirect to home page
       if (user) {
         console.log("inside redirect", user);
         router.push("/");
       }
     };
+    // Rerunning the redirect in case the user did not get set
     if (user !== null) {
       setTimeout(redirect, 200);
     }

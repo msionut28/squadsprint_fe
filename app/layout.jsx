@@ -19,9 +19,7 @@ export default function RootLayout({ children }) {
             <SideBar />
             <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
               <main>
-                <div>
-                  {children}
-                </div>
+                <div>{children}</div>
               </main>
             </div>
           </div>

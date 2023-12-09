@@ -11,6 +11,14 @@ import Loading from "../components/Loading/Loading";
 import DeleteDialog from "../components/DeleteDialog/DeleteDialog";
 
 export default function TaskCreator() {
+  const [groups, setGroups] = useState([]);
+  const [selectedGroup, setSelectedGroup] = useState("");
+  const [tasks, setTasks] = useState(false);
+  const [taskId, setTaskId] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const { user } = useAuth();
+  const router = useRouter();
+  const backendURL = process.env.BACKEND_URL;
   const fieldNames = [
     { name: "title", label: "Title", type: "text", placeholder: "Enter Title" },
     {
@@ -26,15 +34,7 @@ export default function TaskCreator() {
       placeholder: "Pick a date",
     },
   ];
-  const [groups, setGroups] = useState([]);
-  const [selectedGroup, setSelectedGroup] = useState("");
-  const [tasks, setTasks] = useState(false);
-  const [taskId, setTaskId] = useState(null);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const { user } = useAuth();
-  const router = useRouter();
-  const backendURL = process.env.BACKEND_URL;
-
+  
   const onSubmit = async (data) => {
     const accessToken = localStorage.getItem("access_token");
     try {

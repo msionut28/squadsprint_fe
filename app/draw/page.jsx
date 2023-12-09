@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState, useEffect, useRef } from "react";
 
 export default function IndexPage() {
@@ -16,9 +16,9 @@ export default function IndexPage() {
   };
   return (
     <>
-      <h1>EXACLIDRAW </h1>
+      <h1>EXACLIDRAW</h1>
       <div style={{ height: "800px", margin: "40px" }}>
-        {Comp && <Comp ref={excalRef} onChange={onChange} theme='dark' />}
+        {Comp && <Comp ref={excalRef} onChange={onChange} theme="dark" />}
       </div>
     </>
   );
